@@ -31,7 +31,7 @@ int enemyCount = 8;
 Enemy[] enemys = new Enemy[enemyCount];
 Fighter fighter;
 //Background bg;
-FlameManager flameMgr;
+FlameMgr flameMgr;
 Treasure treasure;
 HPBar hpDisplay;
 boolean isMovingUp;
@@ -60,7 +60,7 @@ void setup () {
 	flameMgr = new FlameMgr();
 	//bg = new Background();
 	treasure = new Treasure();
-	hpDisplay = new HPDisplay();
+	hpDisplay = new HPBar();
 	fighter = new Fighter(20);
 
   backgroundImg1 = loadImage("img/bg1.png");
