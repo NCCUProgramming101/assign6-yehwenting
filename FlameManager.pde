@@ -3,7 +3,7 @@ public class FlameManager{
 	public int y = 0;
 	int startTime;
 	int showingImg_num;
-	public Flame (int x, int y) {
+	public FlameManager (int x, int y) {
 		this.x = x;
 		this.y = y;
 		this.showingImg_num = 0;
