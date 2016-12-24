@@ -1,7 +1,7 @@
 class HPBar {
 	PImage hpUI;
 
-	HPDisplay () {
+	HPBar () {
 		this.hpUI = loadImage("img/hp.png");
 	}
 	void updateWithFighterHP(int hp)
