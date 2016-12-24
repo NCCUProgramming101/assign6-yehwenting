@@ -1,15 +1,14 @@
 class HPBar {
-  int x , y ;
-  PImage img ;
-  
-  HPBar (int x, int y ,String imgPath){
-    this.x = x ;
-    this.y = y ;
-    img = loadImage(imgPath); 
-  }
-  
-  void display(int hp){
-    // 顯示血條
-  }
-  
+	PImage hpUI;
+
+	HPDisplay () {
+		this.hpUI = loadImage("img/hp.png");
+	}
+	void updateWithFighterHP(int hp)
+	{
+		fill (255,0,0) ;
+		rect(15,10, hp * 2 , 20 ) ;
+		image(hpUI,10,10);
+	}
+
 }
