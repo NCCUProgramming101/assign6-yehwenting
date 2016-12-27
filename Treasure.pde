@@ -1,23 +1,27 @@
-class Treasure{
-	int x = 0;
-	int y = 0;
-	PImage treasureImg;
-	Treasure () {
-		this.treasureImg = loadImage("img/treasure.png");
-		this.randomPosition();
-	}
+class Treasure {
+  float x, y;
+  float size;
+  PImage img;
+  
+  Treasure (){
+    size = random(0,1) < 0.5 ? 1 :1.4;
+    img = loadImage("img/treasure.png");
+    x = random(width-size*img.width);
+    y = random(height-size*img.height);
+  }
+  
+  void display(){
+    image(img, x, y, size*img.width, size*img.height);
+  }
+  void hp(){
+    hp = treasure.size == 1 ? hp+19.5 : hp+39;
+  }
+  boolean isHit (int bx, int by, int bw, int bh )
+  {
+    boolean collisionX = (this.x + this.img.width*size >= bx) && (bx + bw >= this.x);
+    boolean collisionY = (this.y + this.img.height*size >= by) && (by + bh >= this.y);
+    return collisionX && collisionY;
+  }
+  
 
-	void randomPosition() {
-		this.x = int(random(0, width - this.treasureImg.width));
-		this.y = int(random(0, height - this.treasureImg.height));
-	}
-
-	void draw() {
-		image(this.treasureImg, this.x, this.y);
-
-		if (isHit(this.x, this.y, this.treasureImg.width, this.treasureImg.height, fighter.x, fighter.y, fighter.fighterImg.width, fighter.fighterImg.height)) {
-			fighter.hpValueChange(10);
-			this.randomPosition();
-		}
-	}
 }
