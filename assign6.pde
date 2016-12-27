@@ -19,7 +19,7 @@ final int yourFrameRate = 30 ;
 Fighter fighter ; 
 Treasure treasure;
 HPBar hpbar;
-Boss boss;
+
 // shared images ; 
 PImage enemyImg, bg1, bg2;
 PImage end1, end2, start1, start2;
@@ -75,11 +75,9 @@ void draw (){
       if (enemyArray[i].isHit(fighter.x, fighter.y, fighter.img.width, fighter.img.height )){
         flameManager.add(enemyArray[i].x, enemyArray[i].y );
         enemyArray[i].x = width ;
-        if(enemyState == E_BOSS){
-          hp -= 100;
-        }else{
+        
           enemyArray[i].hp();  
-        }
+        
       }
       enemyArray[i].display();
       for (int j=1; j<6; j++){
@@ -132,9 +130,7 @@ void draw (){
       case E_DIAMOND : 
         arrangeDiamondEnemy() ; 
         break ;
-      case E_BOSS :
-        arrangeBossEnemy() ;   
-        break ;
+     
       }
     }
     break;
@@ -262,13 +258,4 @@ void arrangeDiamondEnemy (){
   }
 }
 
-void arrangeBossEnemy (){
-  float y = random( 0, height - 5 * (enemyImg.height + 10) ) ; 
-  for (int i = 0; i < 8; i++){
-    if (i < 5){
-      enemyArray[i] = new Boss( - width/2, y + i * (enemyImg.height + 10 ) ) ;
-    }else{
-      enemyArray[i] = new Boss ( width, y ) ;
-    }
-  }
-}
+
