@@ -1,26 +1,20 @@
-class Bullet{
-	PImage bullet;
-	int x = 0;
-	int y = 0;
-	Bullet(int x, int y) {
-		this.x = x;
-		this.y = y;
-		this.bullet = loadImage("img/shoot.png");
-	}
+class Bullet {
+  int x, y;
+  PImage img;
+  int speed;
+  boolean state;
 
-	void draw()
-	{
-		image(bullet, x, y);
-	}
-	void move(){
-		this.x -= 3;	
-	}
-
-	boolean isCollideWithEnemy(Enemy enemys)
-	{
-		if (isHit(this.x, this.y, this.bullet.width, this.bullet.height, enemys.x, enemys.y, enemys.enemyImg.width, enemys.enemyImg.height)) {
-		return true;
-		}
-		return false;
-	}
+  Bullet (int x, int y) {
+    speed = 3;
+    img = loadImage("img/shoot.png");
+    this.x=x;
+    this.y=y;
+    state = false;
+  }
+  void display(){
+    image(img, x, y);
+  }
+  void move(){
+    x = x - speed;
+  }
 }
